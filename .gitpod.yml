@@ -1,0 +1,26 @@
+image:
+  file: .Develop.Dockerfile
+
+gitConfig:
+  alias.lg : log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr) - %C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit
+  pull.ff : only
+
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - name: InitTask
+    env:
+      CONAN_USER_HOME: /workspace
+    init: echo "Do Nothing"
+    command: ./init-task.sh
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - port: 3000
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - ms-vscode.cmake-tools
+    - twxs.cmake
+    - mhutchie.git-graph
+    - eamodio.gitlens
